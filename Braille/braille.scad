@@ -37,157 +37,157 @@ module letter(bitmap) {
 
 
 module braille_char(char) {
-	if (char == "A") {
+	if (char == "A" || char == "a") {
 		letter([
 			1,0,
 			0,0,
 			0,0
 		]);
-	} else if (char == "B") {
+	} else if (char == "B" || char == "b") {
 		letter([
 			1,0,
 			1,0,
 			0,0
 		]);
-	} else if (char == "C") {
+	} else if (char == "C" || char == "c") {
 		letter([
 			1,1,
 			0,0,
 			0,0
 		]);
-	} else if (char == "D") {
+	} else if (char == "D" || char == "d") {
 		letter([
 			1,1,
 			0,1,
 			0,0
 		]);
-	} else if (char == "E") {
+	} else if (char == "E" || char == "e") {
 		letter([
 			1,0,
 			0,1,
 			0,0
 		]);
-	} else if (char == "F") {
+	} else if (char == "F" || char == "f") {
 		letter([
 			1,1,
 			1,0,
 			0,0
 		]);
-	} else if (char == "G") {
+	} else if (char == "G" || char == "g") {
 		letter([
 			1,1,
 			1,1,
 			0,0
 		]);
-	} else if (char == "H") {
+	} else if (char == "H" || char == "h") {
 		letter([
 			1,0,
 			1,1,
 			0,0
 		]);
-	} else if (char == "I") {
+	} else if (char == "I" || char == "i") {
 		letter([
 			0,1,
 			1,0,
 			0,0
 		]);
-	} else if (char == "J") {
+	} else if (char == "J" || char == "j") {
 		letter([
 			0,1,
 			1,1,
 			0,0
 		]);
-	} else if (char == "K") {
+	} else if (char == "K" || char == "k") {
 		letter([
 			1,0,
 			0,0,
 			1,0
 		]);
-	} else if (char == "L") {
+	} else if (char == "L" || char == "l") {
 		letter([
 			1,0,
 			1,0,
 			1,0
 		]);
-	} else if (char == "M") {
+	} else if (char == "M" || char == "m") {
 		letter([
 			1,1,
 			0,0,
 			1,0
 		]);
-	} else if (char == "N") {
+	} else if (char == "N" || char == "n") {
 		letter([
 			1,1,
 			0,1,
 			1,0
 		]);
-	} else if (char == "O") {
+	} else if (char == "O" || char == "o") {
 		letter([
 			1,0,
 			0,1,
 			1,0
 		]);
-	} else if (char == "P") {
+	} else if (char == "P" || char == "p") {
 		letter([
 			1,1,
 			1,0,
 			1,0
 		]);
-	} else if (char == "Q") {
+	} else if (char == "Q" || char == "q") {
 		letter([
 			1,1,
 			1,1,
 			1,0
 		]);
-	} else if (char == "R") {
+	} else if (char == "R" || char == "r") {
 		letter([
 			1,0,
 			1,1,
 			1,0
 		]);
-	} else if (char == "S") {
+	} else if (char == "S" || char == "s") {
 		letter([
 			0,1,
 			1,0,
 			1,0
 		]);
-	} else if (char == "T") {
+	} else if (char == "T" || char == "t") {
 		letter([
 			0,1,
 			1,1,
 			1,0
 		]);
-	} else if (char == "U") {
+	} else if (char == "U" || char == "u") {
 		letter([
 			1,0,
 			0,0,
 			1,1
 		]);
-	} else if (char == "V") {
+	} else if (char == "V" || char == "v") {
 		letter([
 			1,0,
 			1,1,
 			1,0
 		]);
-	} else if (char == "W") {
+	} else if (char == "W" || char == "w") {
 		letter([
 			0,1,
 			1,1,
 			0,1
 		]);
-	} else if (char == "X") {
+	} else if (char == "X" || char == "x") {
 		letter([
 			1,1,
 			0,0,
 			1,1
 		]);
-	} else if (char == "Y") {
+	} else if (char == "Y" || char == "y") {
 		letter([
 			1,1,
 			0,1,
 			1,1
 		]);
-	} else if (char == "Z") {
+	} else if (char == "Z" || char == "z") {
 		letter([
 			1,0,
 			0,1,
