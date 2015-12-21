@@ -1,0 +1,6 @@
+// All units in mm
+txtsz = 10; //mm
+pgsize = [216,279]; //mm
+pgspace = .2; //mm
+pgwidth = .4; //mm
+bindwidth = 10; //mm
