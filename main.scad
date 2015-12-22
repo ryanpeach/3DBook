@@ -1,9 +1,7 @@
 use <page.scad>;
-use <./String/string.scad>
-//include<.textdata>
-include<params.txt>
-// Define Content
-pages = [["Lorem ipsum dolor sit amet, consectetur adipiscing elit."]];
+use <./String/string.scad>;
+include<textdata.txt>;
+include<params.txt>;
 
 // Calculate the locations of pages
 function ploc (i) = [0,0,(len(pages)-i-1)*(pgwidth+pgspace)];
