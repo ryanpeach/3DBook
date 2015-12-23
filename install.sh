@@ -1,3 +1,1 @@
-sudo apt-get install openscad
-sudo apt-get install python3
-
+sudo apt-get install openscad python3 python3-numpy python3-matplotlib

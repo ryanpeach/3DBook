@@ -8,23 +8,31 @@ import scipy.ndimage
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [.33,.33,.33])
 
-im = mpimg.imread("img.png")
-gray = rgb2gray(im)
+def importImage(path, plot = False):
+    im = mpimg.imread(path)
+    gray = rgb2gray(im)
 
-ny, nx = len(im[:,0]), len(im[0,:])
-x = range(nx)
-y = range(ny)
-X, Y = np.meshgrid(x, y)
+    ny, nx = len(im[:,0]), len(im[0,:])
+    x = range(nx)
+    y = range(ny)
+    X, Y = np.meshgrid(x, y)
 
-scipy.ndimage.filters.gaussian_filter(gray,.01*nx*ny)
+    out = scipy.ndimage.filters.gaussian_filter(gray,3)
+    out = np.gradient(out)
+    out = sp.stats.threshold(out,None,mean(out),1);
+    out = sp.stats.threshold(out,mean(out),None,0);
 
-with open("img.dat", "w") as f:
-    f.write(str(gray.tolist()))
+    if plot:
+        f = plt.figure()
+        s = f.add_subplot(111,projection='3d')
+        s.plot_surface(X,Y,out)
+        plt.show()
 
-f = plt.figure()
-s = f.add_subplot(111,projection='3d')
-s.plot_surface(X,Y,gray)
+    return out.tolist()
 
-plt.show()
+def writeImages(lst):
+    out = "images = %s" % str(lst)
+    with open("img.dat", "w") as f:
+        f.write(out)
 
 
