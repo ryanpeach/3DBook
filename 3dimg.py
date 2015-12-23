@@ -30,9 +30,9 @@ def importImage(path, plot = False):
 
     return out.tolist()
 
-def writeImages(lst):
+def writeImages(lst, n = 0):
     out = "images = %s" % str(lst)
-    with open("img.dat", "w") as f:
+    with open("render%d.png" % n, "w") as f:
         f.write(out)
 
 

@@ -1,3 +1,5 @@
+from 3dimg.py import *
+
 # Read source text
 with open('source.txt','r') as f:
     source_text = f.read()
@@ -12,8 +14,12 @@ with open('params.txt','r') as f:
 def get_num(x):
     return float(''.join(ele for ele in x if ele.isdigit() or ele == '.'))
 
+# Gets the bool value within a string (default is false)
+def get_bool(x):
+    return x.find("true")!=-1 or x.find("True")!=-1 or x.find("T")!=-1 or x.find("t")!=-1
+
 # Find the necessary Parameters
-pgsize = None; txtsz = None; lmargin = None;
+pgsize, txtsz, lmargin, sigma, braille = None, None, None, None, None
 params_list = params_text.split(";")
 print(params_list)
 for param in params_list:
@@ -31,6 +37,20 @@ for param in params_list:
         lmargin = float(get_num(param[eq:len(param)]))
         print(lmargin)
 
+    t = param.find("braille");
+    if t != -1:
+        eq = param.find("=",t) #find the next = sign
+        sn1 = param[eq+1:len(param)]
+        braille = float(get_bool(param[eq:len(param)]))
+        print(braille)
+
+    t = param.find("sigma");
+    if t != -1:
+        eq = param.find("=",t) #find the next = sign
+        sn1 = param[eq+1:len(param)]
+        sigma = float(get_num(param[eq:len(param)]))
+        print(sigma)
+
     t = param.find("pgsize")
     if t != -1:
         b1 = param.find("[") #find the begin
@@ -42,7 +62,7 @@ for param in params_list:
             pgsize = [get_num(sn1), get_num(sn2)]
 
 # Test that the parameters were found, throw Exception otherwise
-if pgsize == None or txtsz == None or lmargin == None: #Future: check if get_num returns none as well
+if pgsize == None or txtsz == None or sigma = None or lmargin == None or braille == None: #Future: check if get_num returns none as well
     raise Exception
 else:
     pgsize[0] -= lmargin
@@ -51,7 +71,8 @@ else:
 
 
 # Calculate Lines
-CHARMAX = int(pgsize[0]/txtsz)
+if(braille){CHARMAX = int(pgsize[0]/txtsz)}
+else{CHARMAX = int(pgsize[0]/(txtsz/2))}
 paragraphs = source_text.splitlines()
 lines = []
 for p in paragraphs:
@@ -74,7 +95,8 @@ for p in paragraphs:
 
 # Calculate Pages
 pages = []
-LINEMAX = int(pgsize[1]/txtsz)
+if(braille) {LINEMAX = int(pgsize[1]/(txtsz))}
+else {LINEMAX = int(pgsize[1]/(txtsz*1.5))}
 lastpage = 0
 for l in range(0,len(lines)):
     if l-lastpage==LINEMAX:

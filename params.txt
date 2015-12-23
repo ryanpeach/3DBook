@@ -1,6 +1,7 @@
 $fn = 100;
 
 // All units in mm
+braille = false;
 txtsz = 10; //mm
 pgsize = [216,279]; //mm
 pgspace = .2; //mm
@@ -10,3 +11,4 @@ lmargin = 20; //mm
 rings = true;
 titlep = true;
 titles = "Lorem Ipsum";
+sigma = 3; //Used for images
