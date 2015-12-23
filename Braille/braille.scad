@@ -32,55 +32,55 @@ module letter(bitmap,pgwidth,txtsz) {
 
 
 module braille_char(char,pgwidth,txtsz) {
-	if (char == "A" || char == "a") {
+	if (char == "A" || char == "a" || char == "1") {
 		letter([
 			1,0,
 			0,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "B" || char == "b") {
+	} else if (char == "B" || char == "b" || char == "2") {
 		letter([
 			1,0,
 			1,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "C" || char == "c") {
+	} else if (char == "C" || char == "c" || char == "3") {
 		letter([
 			1,1,
 			0,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "D" || char == "d") {
+	} else if (char == "D" || char == "d" || char == "4") {
 		letter([
 			1,1,
 			0,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "E" || char == "e") {
+	} else if (char == "E" || char == "e" || char == "5") {
 		letter([
 			1,0,
 			0,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "F" || char == "f") {
+	} else if (char == "F" || char == "f" || char == "6") {
 		letter([
 			1,1,
 			1,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "G" || char == "g") {
+	} else if (char == "G" || char == "g" || char == "7") {
 		letter([
 			1,1,
 			1,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "H" || char == "h") {
+	} else if (char == "H" || char == "h" || char == "8") {
 		letter([
 			1,0,
 			1,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "I" || char == "i") {
+	} else if (char == "I" || char == "i" || char == "9") {
 		letter([
 			0,1,
 			1,0,
@@ -194,9 +194,10 @@ module braille_char(char,pgwidth,txtsz) {
 
 }
 
-module braille_str(chars, char_count, pagewidth, txtsz) {
+module braille_str(chars, pagewidth, txtsz) {
     spacing = txtsz/3;
     distance = spacing*3;
+    char_count = len(chars);
 	echo(str("Total Width: ", distance * char_count, "mm"));
     for (count = [0:char_count-1]) {
 		translate(v = [0, count * distance, pagewidth/2]) {
@@ -205,17 +206,11 @@ module braille_str(chars, char_count, pagewidth, txtsz) {
 	}
 }
 
-
-
-
-
-
-chars = ["C", "A", "R", "P", "E", " ", "D", "I", "E", "M" ];
-char_count = 10;
+chars = "abcdefghijklmnopqrstuvwxyz";
 
 union()
 {
-	rotate([0,90,0]) braille_str(chars, char_count,1.5,6);
+	rotate([0,90,0]) braille_str(chars,1.5,6);
 	// uncomment next line to have a small "foot" added for better adhesion to the print platform or raft
 	//translate([-19,20,-plate_height]) cube(size = [20,5,2]);
 }

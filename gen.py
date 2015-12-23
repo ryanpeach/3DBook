@@ -13,7 +13,7 @@ def get_num(x):
     return float(''.join(ele for ele in x if ele.isdigit() or ele == '.'))
 
 # Find the necessary Parameters
-pgsize = None; txtsz = None;
+pgsize = None; txtsz = None; lmargin = None;
 params_list = params_text.split(";")
 print(params_list)
 for param in params_list:
@@ -23,6 +23,13 @@ for param in params_list:
         sn1 = param[eq+1:len(param)]
         txtsz = float(get_num(param[eq:len(param)]))
         print(txtsz)
+        
+    t = param.find("lmargin");
+    if t != -1:
+        eq = param.find("=",t) #find the next = sign
+        sn1 = param[eq+1:len(param)]
+        lmargin = float(get_num(param[eq:len(param)]))
+        print(lmargin)
 
     t = param.find("pgsize")
     if t != -1:
@@ -35,9 +42,10 @@ for param in params_list:
             pgsize = [get_num(sn1), get_num(sn2)]
 
 # Test that the parameters were found, throw Exception otherwise
-if pgsize == None or txtsz == None or pgsize == [0,0] or txtsz == 0:
+if pgsize == None or txtsz == None or lmargin == None: #Future: check if get_num returns none as well
     raise Exception
 else:
+    pgsize[0] -= lmargin
     print("pgsize = %s" % str(pgsize))
     print("txtsz = %d" % txtsz)
 
