@@ -86,7 +86,7 @@ textdata = "pages = %s" % str(pages)
 textdata = textdata.replace("\'","\"")
 
 # Write it
-with open('textdata.txt','w') as f:
+with open('.textdata','w') as f:
     f.write(textdata)
 
 print("Done!")

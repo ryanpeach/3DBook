@@ -1,6 +1,6 @@
 use <page.scad>;
 use <./String/string.scad>;
-include<textdata.txt>;
+include<.textdata>;
 include<params.txt>;
 
 // Calculate the locations of pages
