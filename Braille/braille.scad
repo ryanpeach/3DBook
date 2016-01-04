@@ -24,166 +24,165 @@ module letter(bitmap,pgwidth,txtsz) {
 	}
 }
 
-
-module braille_char(char,pgwidth,txtsz) {
-	if (char == "A" || char == "a" || char == "1") {
+module braille_char(ch, pgwidth, txtsz) {
+	if (ch == "A" || ch == "a" || ch == "1") {
 		letter([
 			1,0,
 			0,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "B" || char == "b" || char == "2") {
+	} else if (ch == "B" || ch == "b" || ch == "2") {
 		letter([
 			1,0,
 			1,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "C" || char == "c" || char == "3") {
+	} else if (ch == "C" || ch == "c" || ch == "3") {
 		letter([
 			1,1,
 			0,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "D" || char == "d" || char == "4") {
+	} else if (ch == "D" || ch == "d" || ch == "4") {
 		letter([
 			1,1,
 			0,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "E" || char == "e" || char == "5") {
+	} else if (ch == "E" || ch == "e" || ch == "5") {
 		letter([
 			1,0,
 			0,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "F" || char == "f" || char == "6") {
+	} else if (ch == "F" || ch == "f" || ch == "6") {
 		letter([
 			1,1,
 			1,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "G" || char == "g" || char == "7") {
+	} else if (ch == "G" || ch == "g" || ch == "7") {
 		letter([
 			1,1,
 			1,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "H" || char == "h" || char == "8") {
+	} else if (ch == "H" || ch == "h" || ch == "8") {
 		letter([
 			1,0,
 			1,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "I" || char == "i" || char == "9") {
+	} else if (ch == "I" || ch == "i" || ch == "9") {
 		letter([
 			0,1,
 			1,0,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "J" || char == "j") {
+	} else if (ch == "J" || ch == "j") {
 		letter([
 			0,1,
 			1,1,
 			0,0
 		],pgwidth,txtsz);
-	} else if (char == "K" || char == "k") {
+	} else if (ch == "K" || ch == "k") {
 		letter([
 			1,0,
 			0,0,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "L" || char == "l") {
+	} else if (ch == "L" || ch == "l") {
 		letter([
 			1,0,
 			1,0,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "M" || char == "m") {
+	} else if (ch == "M" || ch == "m") {
 		letter([
 			1,1,
 			0,0,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "N" || char == "n") {
+	} else if (ch == "N" || ch == "n") {
 		letter([
 			1,1,
 			0,1,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "O" || char == "o") {
+	} else if (ch == "O" || ch == "o") {
 		letter([
 			1,0,
 			0,1,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "P" || char == "p") {
+	} else if (ch == "P" || ch == "p") {
 		letter([
 			1,1,
 			1,0,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "Q" || char == "q") {
+	} else if (ch == "Q" || ch == "q") {
 		letter([
 			1,1,
 			1,1,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "R" || char == "r") {
+	} else if (ch == "R" || ch == "r") {
 		letter([
 			1,0,
 			1,1,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "S" || char == "s") {
+	} else if (ch == "S" || ch == "s") {
 		letter([
 			0,1,
 			1,0,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "T" || char == "t") {
+	} else if (ch == "T" || ch == "t") {
 		letter([
 			0,1,
 			1,1,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "U" || char == "u") {
+	} else if (ch == "U" || ch == "u") {
 		letter([
 			1,0,
 			0,0,
 			1,1
 		],pgwidth,txtsz);
-	} else if (char == "V" || char == "v") {
+	} else if (ch == "V" || ch == "v") {
 		letter([
 			1,0,
 			1,1,
 			1,0
 		],pgwidth,txtsz);
-	} else if (char == "W" || char == "w") {
+	} else if (ch == "W" || ch == "w") {
 		letter([
 			0,1,
 			1,1,
 			0,1
 		],pgwidth,txtsz);
-	} else if (char == "X" || char == "x") {
+	} else if (ch == "X" || ch == "x") {
 		letter([
 			1,1,
 			0,0,
 			1,1
 		],pgwidth,txtsz);
-	} else if (char == "Y" || char == "y") {
+	} else if (ch == "Y" || ch == "y") {
 		letter([
 			1,1,
 			0,1,
 			1,1
 		],pgwidth,txtsz);
-	} else if (char == "Z" || char == "z") {
+	} else if (ch == "Z" || ch == "z") {
 		letter([
 			1,0,
 			0,1,
 			1,1
 		],pgwidth,txtsz);
 	} else {
-		echo("Invalid Character: ", char);
+		echo("Invalid Character: ", ch);
 	}
 
 }
@@ -192,7 +191,7 @@ module braille_str(chars, pagewidth, txtsz) {
     spacing = txtsz/3;
     distance = spacing*3;
     char_count = len(chars);
-	echo(str("Total Width: ", distance * char_count, "mm"));
+    echo(str("Total Width: ", distance * char_count, "mm"));
     for (count = [0:char_count-1]) {
 		translate(v = [0, count * distance, pagewidth/2]) {
 			braille_char(chars[count],pagewidth,txtsz);

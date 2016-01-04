@@ -1,0 +1,3 @@
+[submodule "ImplicitCAD"]
+	path = ImplicitCAD
+	url = https://github.com/colah/ImplicitCAD.git
