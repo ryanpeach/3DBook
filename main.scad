@@ -53,8 +53,9 @@ module createall() {
     // Create all pages and translate them
     for (p = [0:len(pages)-1]) {
         translate(ploc(p)) {
-            page(pages[p],txtsz,pgsize,pgwidth,true);
+            page(pages[p],txtsz,pgsize,pgwidth,braille);
         }
+        echo("Page ", p+1, " of ", len(pages));
     }
 }
 
@@ -67,10 +68,10 @@ module createTitle(s) {
     echo(out);
     
     translate([0,0,bookh]) {
-            page(["","",str(out)],txtsz,pgsize,pgwidth*3,true);
+            page(["","",str(out)],txtsz,pgsize,pgwidth*3,braille);
     }
     translate([0,0,-pgwidth*3]) {
-            page([""],txtsz,pgsize,pgwidth*3,true);
+            page([""],txtsz,pgsize,pgwidth*3,braille);
     }
 }
 

@@ -1,4 +1,4 @@
-from 3dimg.py import *
+#from 3dimg.py import *
 
 # Read source text
 with open('source.txt','r') as f:
@@ -62,7 +62,8 @@ for param in params_list:
             pgsize = [get_num(sn1), get_num(sn2)]
 
 # Test that the parameters were found, throw Exception otherwise
-if pgsize == None or txtsz == None or sigma = None or lmargin == None or braille == None: #Future: check if get_num returns none as well
+# Future: check if get_num returns none as well
+if pgsize == None or txtsz == None or sigma == None or lmargin == None or braille == None:
     raise Exception
 else:
     pgsize[0] -= lmargin
@@ -71,8 +72,11 @@ else:
 
 
 # Calculate Lines
-if(braille){CHARMAX = int(pgsize[0]/txtsz)}
-else{CHARMAX = int(pgsize[0]/(txtsz/2))}
+if braille: 
+    CHARMAX = int(pgsize[0]/txtsz)
+else:
+    CHARMAX = int(pgsize[0]/(txtsz/1.45))
+    
 paragraphs = source_text.splitlines()
 lines = []
 for p in paragraphs:
@@ -95,8 +99,11 @@ for p in paragraphs:
 
 # Calculate Pages
 pages = []
-if(braille) {LINEMAX = int(pgsize[1]/(txtsz))}
-else {LINEMAX = int(pgsize[1]/(txtsz*1.5))}
+if braille: 
+    LINEMAX = int(pgsize[1]/(txtsz))
+else:
+    LINEMAX = int(pgsize[1]/(txtsz*1))
+    
 lastpage = 0
 for l in range(0,len(lines)):
     if l-lastpage==LINEMAX:
@@ -108,7 +115,7 @@ textdata = "pages = %s" % str(pages)
 textdata = textdata.replace("\'","\"")
 
 # Write it
-with open('.textdata','w') as f:
+with open('.textdata','w+') as f:
     f.write(textdata)
 
 print("Done!")

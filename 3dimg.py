@@ -32,7 +32,7 @@ def importImage(path, plot = False):
 
 def writeImages(lst, n = 0):
     out = "images = %s" % str(lst)
-    with open("render%d.png" % n, "w") as f:
+    with open("render%d.png" % n, "w+") as f:
         f.write(out)
 
 
