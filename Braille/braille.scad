@@ -3,12 +3,6 @@ Braille Module
 http://creativecommons.org/licenses/by/3.0/
 */
 
-
-// mm sizes from http://dots.physics.orst.edu/gs_layout.html
-$fn = 50;
-$fs = 100;
-$fa = 100;
-
 module letter(bitmap,pgwidth,txtsz) {
     spacing = txtsz/3;
     distance = spacing*3;

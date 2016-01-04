@@ -29,23 +29,26 @@ union() {
         loc3 = [lmargin/2,pgsize[1]/6*5,-bookh];
         ringsize = lmargin/4;
         difference() {
-            createall();
+            group () {
+                createall();
+                echo(titles);
+                if(titlep){createTitle(titles);}            
+            }
             translate(loc1) {cylinder(bookh*3,ringsize,ringsize);}
             translate(loc2) {cylinder(bookh*3,ringsize,ringsize);}
             translate(loc3) {cylinder(bookh*3,ringsize,ringsize);}
         }
         rtot=5;
         translate([-rtot+ringsize/2,loc1[1],0]){
-            toroid(ringsize/2,rtot);
+            sqrings(ringsize/2,rtot);
         }
         translate([-rtot+ringsize/2,loc2[1],0]){
-            toroid(ringsize/2,rtot);
+            sqrings(ringsize/2,rtot);
         }
         translate([-rtot+ringsize/2,loc3[1],0]){
-            toroid(ringsize/2,rtot);
+            sqrings(ringsize/2,rtot);
         }
-        echo(titles);
-        if(titlep){createTitle(titles);}
+        
     }
 }
 
@@ -75,6 +78,17 @@ module createTitle(s) {
     }
 }
 
+module sqrings(rin,rtot) {
+    Hout = bookh+rin*2+(pgwidth+pgspace)*5;;
+    Hin = Hout-rin*2;
+    translate([-rin*2,-rin,-rin-(pgwidth+pgspace)*3]) {
+        difference() {
+            cube([rtot*2+rin*4,rin*2,Hout]);
+            translate([rin,-rin,rin]) cube([rtot*2+rin*2,rin*4,Hin]);
+        }
+    }
+}
+    
 module toroid(rin,rtot) {
     rotate([90,0,0]) {
         rotate_extrude()

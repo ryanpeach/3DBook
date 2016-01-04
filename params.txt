@@ -1,7 +1,7 @@
 $fn = 0;
 
 // All units in mm
-braille = false;
+braille = true;
 txtsz = 10; //mm
 pgsize = [216,279]; //mm
 pgspace = .2; //mm
